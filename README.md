@@ -1,6 +1,4 @@
-# vba-excel
-#Tratamento de erros via vba Excel
-
+# Tratamento de Erros Vba Excel
 
 Objetivo:
 Tendo em vista produtividade e  na construção de sistemas vba, pelo programador, foi criado um modulo e uma classe, com o fim de agilizar a localização e interceptação de erros, otimizando a mensgem para o usuario do sistema, e auxiliando o programador na captura dos possiveis erros que poderão ocorrer no  sistema.
