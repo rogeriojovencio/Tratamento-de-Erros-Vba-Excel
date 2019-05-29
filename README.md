@@ -2,10 +2,11 @@
 #Tratamento de erros via vba Excel
 
 
-#Objetivo:
-	Tendo em vista produtividade e  na construção de sistemas vba, pelo programador, foi criado um modulo e uma classe, com o fim de agilizar a localização e interceptação de erros, otimizando a mensgem para o usuario do sistema, e auxiliando o programador na captura dos possiveis erros que poderão ocorrer no  sistema.
--  Modulos:  mdlError.bas
-- Classes: clsFormatError.cls
+Objetivo:
+Tendo em vista produtividade e  na construção de sistemas vba, pelo programador, foi criado um modulo e uma classe, com o fim de agilizar a localização e interceptação de erros, otimizando a mensgem para o usuario do sistema, e auxiliando o programador na captura dos possiveis erros que poderão ocorrer no  sistema.
+ -  Modulos:  mdlError.bas
+ - Classes: clsFormatError.cls
+
 #Escopo:
 1:  Primeiros Passos:
 •	Crie uma aba chamada menu para atribuir os menus de acesso ao seu projeto.
@@ -21,7 +22,7 @@
 #3: Chamada do modulo e classe:
 •	 Dentro de seu procedimentos ou função , crie uma variavel erro.
 #	exemplo :
-            ‘Public sub Nome_Da_Funcao() As String
+            'Public sub Nome_Da_Funcao() As String
                            ‘On Error GoTo erro
                                '=====INICIO DO SEU PROCESSO========                                
                                       'processamento1
@@ -30,15 +31,16 @@
                                 '=====FIM DO SEU PROCESSO===========
                                 '    Exit Function
                                 'erro:                             
-Obs:Invoque o modulo de tratamento de erros
-                                '    Call mdlError.MsnError(Err.Number, Err.Description, "Nome_Da_Funcao", Now())
+            ' Obs:Invoque o modulo de tratamento de erros
+            ' Call mdlError.MsnError(Err.Number, Err.Description, "Nome_Da_Funcao", Now())
  
-                            'End Function
+             End Function
         
     
 #4: Detalhes do Processo:
 	mdlError.bas
 o	->  sub MsnError   ex: [MsnError (scodError As Long, MsnError As String, sProcedimento As String, sdata As String)]
+
 •	Há somente a necessidade de chamar este procedimento em seu tratamento de erros.
 •	Passanddo como parametros o codigo de erro interceptado.
 •	Passando a mensagem de erro interceptada.
@@ -48,15 +50,15 @@ o	->  sub MsnError   ex: [MsnError (scodError As Long, MsnError As String, sProc
 Obs:-> (os procedimento abaixo listado é executado pela classe, sem a necessidade de qualquer programação)
     
 	 Verificar se a tabela de erros ja esta criada.
-		•			Caso não estiver criada, cria a tabela
-			•	Atribui o formato ja  programado na classe.
-				o	Verifica se o codigo de erro ja exite.
-						 caso existir:
-			•	verifica se a mensagem programada esta descrita no sistema.
-				o	caso não estiver
-						informa a mensagem do sistema.
-				o	caso existir
-						informa a mensagem programada
+		•Caso não estiver criada, cria a tabela
+			•Atribui o formato ja  programado na classe.
+					o Verifica se o codigo de erro ja exite.
+							 caso existir:
+							o	verifica se a mensagem programada esta descrita no sistema.
+								o	caso não estiver
+										informa a mensagem do sistema.
+								o	caso existir
+										informa a mensagem programada
 						fim da verificação.
 						Adiciona no contador a quantidade de erros ocorridos deste codigo
 						Emite a mensagem de erro formatada na tela, com formato programado.
